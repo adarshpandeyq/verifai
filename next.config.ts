@@ -1,7 +1,12 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  serverExternalPackages: ["sharp"],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  serverExternalPackages: ['sharp'],
+  outputFileTracingIncludes: {
+    '/api/**/*': [
+      './node_modules/sharp/**/*',
+      './node_modules/@img/**/*',
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
